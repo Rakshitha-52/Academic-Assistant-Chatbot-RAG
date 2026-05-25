@@ -6,6 +6,7 @@
 import os
 import fitz
 import numpy as np
+from dotenv import load_dotenv
 import requests
 import google.generativeai as genai
 
@@ -192,9 +193,8 @@ class AcademicChatbot:
 if __name__ == "__main__":
 
 
-
-    API_KEY = "AIzaSyBFf1tV89zhqjX7QvWUeo6UFAEV6hxgGlw"
-
+    load_dotenv()
+    API_KEY = os.getenv("GEMINI_API_KEY")
     bot = AcademicChatbot(API_KEY)
 
     print("\n===================================")
@@ -215,3 +215,4 @@ if __name__ == "__main__":
 
         print("\nBot:", answer)
         print("\n" + "-" * 50)
+
